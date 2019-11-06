@@ -18,7 +18,7 @@ yarn dev
 
 ### pages/about.js
 
-```js
+```jsx
 import React from "react";
 import Layout from "../components/layout";
 
@@ -37,7 +37,7 @@ export default About;
 
 ### components/layout.js
 
-```js
+```jsx
 import Nav from "./nav";
 import Head from "next/head";
 
@@ -58,6 +58,50 @@ export default Layout;
 ```
 
 ## 04: Links in NextJS
+
+### components/nav.js
+
+```jsx
+<Link href="/about">
+  <a>About</a>
+</Link>
+```
+
+### events/[slug].js
+
+```jsx
+import { useRouter } from "next/router";
+import Layout from "../../components/layout";
+
+const Event = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  return (
+    <Layout>
+      <h1>{slug}</h1>
+    </Layout>
+  );
+};
+
+export default Event;
+```
+
+### events/index.js
+
+```jsx
+import Layout from "../../components/layout";
+
+const Event = () => {
+  return (
+    <Layout>
+      <h1>All Events</h1>
+    </Layout>
+  );
+};
+
+export default Event;
+```
 
 ## 05: API Routes in NextJS 9
 
