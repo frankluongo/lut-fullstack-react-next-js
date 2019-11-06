@@ -8,6 +8,12 @@ NextJS is a JavaScript Framework for React that allows you to Server-Side Render
 
 ## 02: Getting Started With NextJS
 
+```bash
+npx create-next-app
+cd tracker
+yarn dev
+```
+
 ## 03: Creating Pages
 
 ## 04: Links in NextJS
