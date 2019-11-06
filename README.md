@@ -16,6 +16,47 @@ yarn dev
 
 ## 03: Creating Pages
 
+### pages/about.js
+
+```js
+import React from "react";
+import Layout from "../components/layout";
+
+const About = () => {
+  return (
+    <Layout>
+      <div>
+        <h1>About</h1>
+      </div>
+    </Layout>
+  );
+};
+
+export default About;
+```
+
+### components/layout.js
+
+```js
+import Nav from "./nav";
+import Head from "next/head";
+
+const Layout = ({ children }) => {
+  return (
+    <>
+      <Head>
+        <title>Home</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Nav />
+      <main>{children}</main>
+    </>
+  );
+};
+
+export default Layout;
+```
+
 ## 04: Links in NextJS
 
 ## 05: API Routes in NextJS 9
