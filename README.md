@@ -165,6 +165,58 @@ export default ApolloMicroServer.createHandler({ path: "/api/graphql" });
 
 ## 07: Apollo Client Part 1
 
+```bash
+cd tracker && yarn add @apollo/react-hooks apollo-boost
+cd tracker && yarn add graphql-tag
+cd tracker && isomorphic-unfetch
+```
+
+### lib/apollo.js
+
+```js
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
+import fetch from "isomorphic-unfetch";
+
+export function withApollo(PageComponent) {
+  const WithApollo = props => {
+    const client = new ApolloClient({
+      uri: "http://localhost:3000/api/graphql",
+      fetch
+    });
+
+    return (
+      <ApolloProvider client={client}>
+        <PageComponent {...props} />
+      </ApolloProvider>
+    );
+  };
+  return WithApollo;
+}
+```
+
+### pages/index.js
+
+```js
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+
+import { withApollo } from "../lib/apollo";
+
+const HELLO_QUERY = gql`
+  query HelloQuery {
+    sayHello
+  }
+`;
+
+const Home = () => {
+  const { data, loading, error } = useQuery(HELLO_QUERY);
+  if (loading) return <div />;
+  return (
+  ...
+export default withApollo(Home);
+```
+
 ## 08: Apollo Client Part 2 - SSR
 
 ## 09: Apollo Client Part 3 - 3rd Party API's
