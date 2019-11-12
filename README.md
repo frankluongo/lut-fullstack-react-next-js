@@ -105,6 +105,28 @@ export default Event;
 
 ## 05: API Routes in NextJS 9
 
+### pages/api/graphql.js
+
+```js
+// Shorthand
+export default (req, res) => {
+  res.status(200).json({
+    test: "Hello Level Up!"
+  });
+};
+
+// Long Way
+// export default (req, res) => {
+//   res.setHeader("Content-Type", "application/json");
+//   res.statusCode = 200;
+//   res.end(
+//     JSON.stringify({
+//       test: "Hello Level Up!"
+//     })
+//   );
+// };
+```
+
 ## 06: Setting Up Our Apollo Server
 
 ## 07: Apollo Client Part 1
