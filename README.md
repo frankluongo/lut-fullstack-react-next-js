@@ -129,6 +129,40 @@ export default (req, res) => {
 
 ## 06: Setting Up Our Apollo Server
 
+```bash
+cd tracker && yarn add apollo-server-micro
+```
+
+### pages/api/graphql.js
+
+```js
+import { ApolloServer, gql } from "apollo-server-micro";
+
+const typeDefs = gql`
+  type Query {
+    sayHello: String
+  }
+`;
+
+const resolvers = {
+  Query: {
+    sayHello: () => {
+      return "Hello Level Up";
+    }
+  }
+};
+
+const ApolloMicroServer = new ApolloServer({ typeDefs, resolvers });
+
+export const config = {
+  api: {
+    bodyParser: false
+  }
+};
+
+export default ApolloMicroServer.createHandler({ path: "/api/graphql" });
+```
+
 ## 07: Apollo Client Part 1
 
 ## 08: Apollo Client Part 2 - SSR
