@@ -1,10 +1,8 @@
+import ApolloClient from "apollo-boost";
 import Head from "next/head";
-import fetch from "isomorphic-unfetch";
-// import ApolloClient from "apollo-boost";
-import { ApolloClient } from "apollo-client";
 import { ApolloProvider } from "@apollo/react-hooks";
+import fetch from "isomorphic-unfetch";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
 
 export function withApollo(PageComponent) {
   const WithApollo = ({ apolloClient, apolloState, ...pageProps }) => {
@@ -17,17 +15,18 @@ export function withApollo(PageComponent) {
     );
   };
 
-  withApollo.getInitialProps = async context => {
-    const { AppTree } = context;
-    const apolloClient = (context.apolloClient = initApolloClient());
+  WithApollo.getInitialProps = async ctx => {
+    const { AppTree } = ctx;
+    const apolloClient = (ctx.apollClient = initApolloClient());
 
     let pageProps = {};
     if (PageComponent.getInitialProps) {
-      PageProps = await PageComponent.getInitialProps(context);
+      pageProps = await PageComponent.getInitialProps(ctx);
     }
 
+    // If on server
     if (typeof window === "undefined") {
-      if (context.res && context.res.finished) {
+      if (ctx.res && ctx.res.finished) {
         return pageProps;
       }
 
@@ -41,15 +40,14 @@ export function withApollo(PageComponent) {
             }}
           />
         );
-      } catch (error) {
-        console.error(error);
+      } catch (e) {
+        console.error(e);
       }
 
       Head.rewind();
     }
 
     const apolloState = apolloClient.cache.extract();
-
     return {
       ...pageProps,
       apolloState
@@ -60,16 +58,13 @@ export function withApollo(PageComponent) {
 }
 
 const initApolloClient = (initialState = {}) => {
-  const cache = new InMemoryCache().restore(initialState);
-  const link = new HttpLink({
-    uri: "http://localhost:3000/api/graphql",
-    fetch
-  });
   const ssrMode = typeof window === "undefined";
+  const cache = new InMemoryCache().restore(initialState);
 
   const client = new ApolloClient({
     ssrMode,
-    link,
+    uri: "http://localhost:3000/api/graphql",
+    fetch,
     cache
   });
   return client;
