@@ -58,11 +58,9 @@ export function withApollo(PageComponent) {
 }
 
 const initApolloClient = (initialState = {}) => {
-  const ssrMode = typeof window === "undefined";
   const cache = new InMemoryCache().restore(initialState);
 
   const client = new ApolloClient({
-    ssrMode,
     // Change this URI to hit any API you want!
     uri: "http://localhost:3000/api/graphql",
     fetch,

@@ -1,12 +1,12 @@
 import Habit from "./habit";
 
-const HabitList = () => {
+const HabitList = ({ habits }) => {
   return (
     <section>
       <h2>My Habits</h2>
-      <Habit />
-      <Habit />
-      <Habit />
+      {habits.map((habit, index) => (
+        <Habit habit={habit} key={index} />
+      ))}
     </section>
   );
 };
