@@ -303,6 +303,71 @@ const initApolloClient = (initialState = {}) => {
 
 ## 10: Developing Our Interface
 
+### components/habit/habit.js
+
+```js
+import HabitButton from "./habitButton";
+
+const Habit = () => {
+  return (
+    <article>
+      <h3>Habit Title</h3>
+      <div>
+        <HabitButton />
+        <HabitButton />
+        <HabitButton />
+        <HabitButton />
+        <HabitButton />
+        <HabitButton />
+        <HabitButton />
+        <HabitButton />
+      </div>
+    </article>
+  );
+};
+
+export default Habit;
+```
+
+### components/habit/habitButton.js
+
+```js
+import { useState } from "react";
+
+const HabitButton = () => {
+  const [complete, setComplete] = useState(false);
+  const indicator = complete ? "x" : "o";
+
+  function handleClick() {
+    setComplete(!complete);
+  }
+
+  return <button onClick={handleClick.bind(this)}>{indicator}</button>;
+};
+
+export default HabitButton;
+```
+
+### components/habit/habitList.js
+
+```js
+import Habit from "./habit";
+
+const HabitList = () => {
+  return (
+    <section>
+      <h2>My Habits</h2>
+      <Habit />
+      <Habit />
+      <Habit />
+    </section>
+  );
+};
+
+export default HabitList;
+
+```
+
 ## 11: Habits Form
 
 ## 12: CSS in NextJS
