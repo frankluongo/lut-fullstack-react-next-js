@@ -63,6 +63,7 @@ const initApolloClient = (initialState = {}) => {
 
   const client = new ApolloClient({
     ssrMode,
+    // Change this URI to hit any API you want!
     uri: "http://localhost:3000/api/graphql",
     fetch,
     cache
