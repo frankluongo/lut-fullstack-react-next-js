@@ -415,6 +415,10 @@ yarn add dotenv
 
 ## 14: Setting Up MongoDB
 
+```bash
+yarn add mongoose
+```
+
 ## 15: Our GraphQL API
 
 ## 16: Connecting Our API To Apollo Server
