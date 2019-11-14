@@ -409,6 +409,10 @@ export default Habit;
 
 ## 13: DotEnv In NextJS
 
+```bash
+yarn add dotenv
+```
+
 ## 14: Setting Up MongoDB
 
 ## 15: Our GraphQL API
