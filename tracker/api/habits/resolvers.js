@@ -1,4 +1,4 @@
-export const HabitsResolvers = {
+export const habitsResolvers = {
   Query: {
     async habits() {
       console.log("Habits");

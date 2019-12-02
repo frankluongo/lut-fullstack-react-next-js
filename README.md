@@ -425,6 +425,8 @@ Created files in api folder
 
 ## 16: Connecting Our API To Apollo Server
 
+Connected files in api folder to `graphql.js1 file
+
 ## 17: Apollo Hooks To Query Data
 
 ## 18: Writing To Our DB With a Mutation
