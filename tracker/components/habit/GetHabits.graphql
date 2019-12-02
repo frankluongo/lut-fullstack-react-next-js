@@ -1,0 +1,6 @@
+query getHabits {
+  habits {
+    _id
+    name
+  }
+}

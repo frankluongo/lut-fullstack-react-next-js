@@ -5,7 +5,7 @@ const Habit = ({ habit }) => {
   return (
     <>
       <article>
-        <h3>{habit}</h3>
+        <h3>{habit.name}</h3>
         <div>
           {dates.map((date, index) => (
             <HabitButton date={date} key={index} />

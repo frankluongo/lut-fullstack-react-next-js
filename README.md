@@ -429,6 +429,8 @@ Connected files in api folder to `graphql.js1 file
 
 ## 17: Apollo Hooks To Query Data
 
+Used a query in `HabitList.js` to fetch real todos from our database!
+
 ## 18: Writing To Our DB With a Mutation
 
 ## 19: Querying From The Database
