@@ -433,6 +433,8 @@ Used a query in `HabitList.js` to fetch real todos from our database!
 
 ## 18: Writing To Our DB With a Mutation
 
+Added a mutation to `HabitForm.js` to update the MongoDB Database
+
 ## 19: Querying From The Database
 
 ## 20 Our Habit Events

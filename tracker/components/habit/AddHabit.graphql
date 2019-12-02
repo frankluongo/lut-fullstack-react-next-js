@@ -1,0 +1,6 @@
+mutation addHabit($habit: HabitInput) {
+  addHabit(habit: $habit) {
+    _id
+    name
+  }
+}
