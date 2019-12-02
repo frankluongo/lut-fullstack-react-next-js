@@ -437,6 +437,8 @@ Added a mutation to `HabitForm.js` to update the MongoDB Database
 
 ## 19: Querying From The Database
 
+Added our Habits to the `resolvers.js` file so that it actually hits the database for them
+
 ## 20 Our Habit Events
 
 ## 21: Error States

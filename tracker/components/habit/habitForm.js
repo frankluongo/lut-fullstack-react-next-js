@@ -3,7 +3,9 @@ import { useMutation } from "@apollo/react-hooks";
 import AddHabit from "./AddHabit.graphql";
 
 const HabitForm = () => {
-  const [addHabit] = useMutation(AddHabit);
+  const [addHabit] = useMutation(AddHabit, {
+    refetchQueries: ["getHabits"]
+  });
 
   return (
     <Form onSubmit={handleSubmit.bind(this)}>
