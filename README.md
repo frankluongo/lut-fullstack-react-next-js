@@ -421,6 +421,8 @@ yarn add mongoose
 
 ## 15: Our GraphQL API
 
+Created files in api folder
+
 ## 16: Connecting Our API To Apollo Server
 
 ## 17: Apollo Hooks To Query Data
