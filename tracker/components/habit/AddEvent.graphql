@@ -1,0 +1,10 @@
+mutation addEvent($date: Date, $habitId: ID) {
+  addEvent(date: $date, habitId: $habitId) {
+    _id
+    name
+    events {
+      _id
+      date
+    }
+  }
+}

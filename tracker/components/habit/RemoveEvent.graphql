@@ -1,0 +1,10 @@
+mutation removeEvent($date: Date, $habitId: ID) {
+  removeEvent(date: $date, habitId: $habitId) {
+    _id
+    name
+    events {
+      _id
+      date
+    }
+  }
+}
