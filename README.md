@@ -449,6 +449,8 @@ Added an error state to `HabitList.js` to handle when our queries don't come bac
 
 ## 22: Adding Events To The Database
 
+Update Habit Button and Mutations files to finally update the database.
+
 ## 23: NOW Hosting & Pitfalls
 
 ## 24: Where To Go From Here

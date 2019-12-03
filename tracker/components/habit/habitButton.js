@@ -3,9 +3,7 @@ import { useMutation } from "@apollo/react-hooks";
 import AddEvent from "./AddEvent.graphql";
 import RemoveEvent from "./RemoveEvent.graphql";
 
-const HabitButton = ({ date, habitId }) => {
-  const indicator = complete ? "x" : "o";
-
+const HabitButton = ({ date, habitId, events }) => {
   const [addEvent] = useMutation(AddEvent, {
     refetchQueries: ["getHabits"]
   });
@@ -14,19 +12,22 @@ const HabitButton = ({ date, habitId }) => {
     refetchQueries: ["getHabits"]
   });
 
-  const found = false;
+  const foundDate = events.find(event => {
+    const eventDate = new Date(event.date);
+    return eventDate.getDate() === date.getDate();
+  });
 
   return (
     <>
       <section>
         <div>{`${date.getMonth() + 1}/ ${date.getDate()}`}</div>
-        {found ? (
+        {foundDate ? (
           <button
             onClick={() => {
               removeEvent({
                 variables: {
                   habitId,
-                  eventId: "asdfdsgdfgfd"
+                  eventId: foundDate._id
                 }
               });
             }}
