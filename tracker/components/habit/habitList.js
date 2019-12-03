@@ -8,8 +8,10 @@ const HabitList = () => {
 
   if (loading) return <secton>Loading Habits...</secton>;
 
-  if (error)
+  if (error) {
+    console.log(error);
     return <section>Oh No! There was an error getting your habit list</section>;
+  }
 
   const { habits } = data;
 

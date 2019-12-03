@@ -1,4 +1,4 @@
-mutation addEvent($date: Date, $habitId: ID) {
+mutation addEvent($date: Date, $eventId: ID, $habitId: ID) {
   addEvent(date: $date, habitId: $habitId) {
     _id
     name

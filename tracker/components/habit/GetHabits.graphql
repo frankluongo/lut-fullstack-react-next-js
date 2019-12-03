@@ -2,5 +2,9 @@ query getHabits {
   habits {
     _id
     name
+    events {
+      _id
+      name
+    }
   }
 }

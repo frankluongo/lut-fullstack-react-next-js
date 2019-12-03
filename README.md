@@ -445,6 +445,8 @@ Added definitions for events in the `Habits.graphql` file and then made mutation
 
 ## 21: Error States
 
+Added an error state to `HabitList.js` to handle when our queries don't come back correctly
+
 ## 22: Adding Events To The Database
 
 ## 23: NOW Hosting & Pitfalls

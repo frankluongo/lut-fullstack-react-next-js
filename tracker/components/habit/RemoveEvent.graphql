@@ -1,5 +1,5 @@
-mutation removeEvent($date: Date, $habitId: ID) {
-  removeEvent(date: $date, habitId: $habitId) {
+mutation removeEvent($eventId: ID, $habitId: ID) {
+  removeEvent(eventId: $eventId, habitId: $habitId) {
     _id
     name
     events {

@@ -8,7 +8,12 @@ const Habit = ({ habit }) => {
         <h3>{habit.name}</h3>
         <div>
           {dates.map((date, index) => (
-            <HabitButton date={date} key={index} />
+            <HabitButton
+              date={date}
+              key={index}
+              habitId={habit._id}
+              events={habit.events}
+            />
           ))}
         </div>
       </article>

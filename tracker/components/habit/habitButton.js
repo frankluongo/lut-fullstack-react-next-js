@@ -3,19 +3,50 @@ import { useMutation } from "@apollo/react-hooks";
 import AddEvent from "./AddEvent.graphql";
 import RemoveEvent from "./RemoveEvent.graphql";
 
-const HabitButton = ({ date }) => {
-  const [complete, setComplete] = useState(false);
+const HabitButton = ({ date, habitId }) => {
   const indicator = complete ? "x" : "o";
 
-  function handleClick() {
-    setComplete(!complete);
-  }
+  const [addEvent] = useMutation(AddEvent, {
+    refetchQueries: ["getHabits"]
+  });
+
+  const [removeEvent] = useMutation(RemoveEvent, {
+    refetchQueries: ["getHabits"]
+  });
+
+  const found = false;
 
   return (
     <>
       <section>
         <div>{`${date.getMonth() + 1}/ ${date.getDate()}`}</div>
-        <button onClick={handleClick.bind(this)}>{indicator}</button>
+        {found ? (
+          <button
+            onClick={() => {
+              removeEvent({
+                variables: {
+                  habitId,
+                  eventId: "asdfdsgdfgfd"
+                }
+              });
+            }}
+          >
+            x
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              addEvent({
+                variables: {
+                  habitId,
+                  date
+                }
+              });
+            }}
+          >
+            o
+          </button>
+        )}
       </section>
       <style jsx>{`
         section {
